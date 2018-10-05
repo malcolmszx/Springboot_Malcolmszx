@@ -21,5 +21,13 @@ redisson:
 redis: 
   lock: 
     cron: 0/5 * * * * ?
+    
+logging: 
+  pattern: 
+    console: "%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n"
+    file: "%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n"
+  file: d:/log/redis-distributed-lock-demo-spring/console.log
+  level: 
+    com.kingdee.abc: INFO
 
 

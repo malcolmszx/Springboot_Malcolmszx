@@ -19,9 +19,9 @@ import com.kingdee.abc.lock.RedissonLock;
  */
 @Aspect
 @Component
-public class DistributedLockHandler {
+public class DistributedLocAspect {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DistributedLockHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DistributedLocAspect.class);
 
     @Pointcut("@annotation(com.kingdee.abc.annotation.DistributedLock)")
     public void distributedLock() {}

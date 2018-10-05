@@ -22,12 +22,17 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<mybatis.version>1.3.1</mybatis.version>
 		<aspectjweaver>1.8.10</aspectjweaver>
 		<aspecjrt>1.8.10</aspecjrt>
 		<apache-common-lang3>3.4</apache-common-lang3>
 		<google-guava>20.0</google-guava>
 		<apache-common-lang3>3.4</apache-common-lang3>
 		<java.version>1.8</java.version>
+		<commons-io.version>2.6</commons-io.version>
+		<fastjson.version>1.2.39</fastjson.version>
+		<redisson.version>3.5.4</redisson.version>
+		
 	</properties>
 
 	<dependencies>
@@ -68,7 +73,7 @@
 		<dependency>
 		    <groupId>org.mybatis.spring.boot</groupId>
 		    <artifactId>mybatis-spring-boot-starter</artifactId>
-		    <version>1.3.1</version>
+		    <version>${mybatis.version}</version>
 		</dependency>
 		<!--mapper-->
 		<dependency>
@@ -86,7 +91,13 @@
 		<dependency>
 		    <groupId>commons-io</groupId>
 		    <artifactId>commons-io</artifactId>
-		    <version>2.6</version>
+		    <version>${commons-io.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
 		</dependency>
 		
 		<!-- ********************************* -->
@@ -113,7 +124,7 @@
 		<dependency>
 			<groupId>org.redisson</groupId>
 			<artifactId>redisson</artifactId>
-			<version>3.5.4</version>
+			<version>${redisson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
