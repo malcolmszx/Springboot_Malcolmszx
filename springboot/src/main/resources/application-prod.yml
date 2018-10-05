@@ -1,0 +1,9 @@
+server: 
+  port: 8080
+  servlet:
+    context-path: /encrypt
+    
+girl: 
+   cupSize: G
+   age: 21
+   content: "cupSize: ${girl.cupSize} , age: ${girl.age} "

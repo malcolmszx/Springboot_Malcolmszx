@@ -1,0 +1,25 @@
+spring: 
+  encrypt: 
+    key: abcdef0123456789
+    debug: false
+  profiles: 
+    active: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dbgirl?characterEncoding=utf8&useSSL=true
+    username: root
+    password: dengqw
+  jpa: 
+    hibernate:
+      ddl-auto: update
+    show-sql: true 
+redisson: 
+  lock: 
+    server: 
+      address: 127.0.0.1:6379
+      type: standalone 
+redis: 
+  lock: 
+    cron: 0/5 * * * * ?
+
+
