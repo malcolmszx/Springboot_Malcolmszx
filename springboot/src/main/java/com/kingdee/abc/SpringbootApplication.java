@@ -23,7 +23,7 @@ public class SpringbootApplication {
 	}
 	
 	/**
-     * @author snowalker
+     * @author malcolmszx
      * @date 2017-3-17
      * @describe 优化tomcat线程数目
      */

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author snowalker
+ * @author malcolmszx
  * @date 2018/7/12
  * @desc 主从方式Redisson配置
  * 连接方式：主节点,子节点,子节点

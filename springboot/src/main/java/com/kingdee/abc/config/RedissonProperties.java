@@ -3,7 +3,7 @@ package com.kingdee.abc.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @author snowalker
+ * @author malcolmszx
  * @date 2018/7/10
  * @desc Redisson配置映射类
  */

@@ -32,7 +32,7 @@ import com.kingdee.abc.util.JsonUtils;
  * 请求头中获取sign进行校验，判断合法性和是否过期<br>
  * 
  * sign=加密({参数：值, 参数2：值2, signTime:签名时间戳})
- * @author yinjihuan
+ * @author malcolmszx
  * 
  * @about http://cxytiandi.com/about
  *

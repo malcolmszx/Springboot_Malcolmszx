@@ -13,7 +13,7 @@ import com.kingdee.abc.annotation.DistributedLock;
 import com.kingdee.abc.lock.RedissonLock;
 
 /**
- * @author snowalker
+ * @author malcolmszx
  * @date 2018/7/10
  * @desc Redisson分布式锁注解解析器
  */

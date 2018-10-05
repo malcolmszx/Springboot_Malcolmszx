@@ -22,8 +22,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * 
  * 对加了@Encrypt的方法的数据进行加密操作
  * 
- * @author yinjihuan
- * 
+ * @author malcolmszx
+ * @date 2018/10/05
  * @about http://cxytiandi.com/about
  *
  */

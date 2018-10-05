@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author snowalker
+ * @author malcolmszx
  * @date 2018/7/12
  * @desc 单机方式Redisson配置
  */

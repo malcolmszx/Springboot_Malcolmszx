@@ -26,8 +26,8 @@ import com.kingdee.abc.util.AesEncryptUtils;
  * 
  * 只对@RequestBody参数有效
  * 
- * @author yinjihuan
- * 
+ * @author malcolmszx
+ * @date 2018/10/05
  * @about http://cxytiandi.com/about
  *
  */

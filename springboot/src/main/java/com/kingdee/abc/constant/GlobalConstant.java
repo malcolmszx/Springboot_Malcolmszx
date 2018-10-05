@@ -1,7 +1,7 @@
 package com.kingdee.abc.constant;
 
 /**
- * @author snowalker
+ * @author malcolmszx
  * @date 2018/7/12
  * @desc 全局常量枚举
  */

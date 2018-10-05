@@ -7,7 +7,7 @@ import com.kingdee.abc.config.RedissonAutoConfiguration;
 import java.lang.annotation.*;
 
 /**
- * @author snowalker
+ * @author malcolmszx
  * @date 2018/7/10
  * @desc 开启Redisson注解支持
  */

@@ -3,7 +3,7 @@ package com.kingdee.abc.annotation;
 import java.lang.annotation.*;
 
 /**
- * @author snowalker
+ * @author malcolmszx
  * @date 2018/7/10
  * @desc Redisson分布式锁注解
  */

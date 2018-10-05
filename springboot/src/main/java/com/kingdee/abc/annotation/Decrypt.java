@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * 
  * <p>加了此注解的接口将进行数据解密操作<p>
  * 
- * @author yinjihuan
+ * @author malcolmszx
  * 
  * @about http://cxytiandi.com/about
  *

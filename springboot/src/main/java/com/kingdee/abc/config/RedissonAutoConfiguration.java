@@ -14,7 +14,7 @@ import com.kingdee.abc.lock.RedissonLock;
 import com.kingdee.abc.lock.RedissonManager;
 
 /**
- * @author snowalker
+ * @author malcolmszx
  * @date 2018/7/10
  * @desc Redisson自动化配置
  */

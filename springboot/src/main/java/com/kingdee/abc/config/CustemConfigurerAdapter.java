@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 
 /**
  * 自定义配置项类，该类中和存入拦截器、过滤器等配置项信息
- * @author Administrator
+ * @author malcolmszx
  */
 @Configuration
 public class CustemConfigurerAdapter {

@@ -26,7 +26,7 @@ import com.kingdee.abc.config.EncryptAutoConfiguration;
  * }
  * <pre>
  * 
- * @author yinjihuan
+ * @author malcolmszx
  *
  * @about http://cxytiandi.com/about
  */
