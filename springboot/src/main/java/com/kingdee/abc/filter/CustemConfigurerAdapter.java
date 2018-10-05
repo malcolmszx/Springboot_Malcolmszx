@@ -1,8 +1,7 @@
-package com.kingdee.abc.config;
+package com.kingdee.abc.filter;
 
 
 import org.springframework.context.annotation.Configuration;
-import com.kingdee.abc.filter.SignAuthFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
@@ -15,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 public class CustemConfigurerAdapter {
 
 
-	private static final String[] URLS = {"/user/*"};
+	private static final String[] URLS = {"/alibab*"};
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
