@@ -13,9 +13,9 @@ import com.kingdee.abc.annotation.DistributedLock;
  * @desc 纯java调用
  */
 @Component
-public class RedissonTask {
+public class DistributedRedissonTask {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(RedissonTask.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DistributedRedissonTask.class);
 	
     @Scheduled(cron = "${redis.lock.cron}")
     @DistributedLock(value = "redis-lock", expireSeconds = 11)

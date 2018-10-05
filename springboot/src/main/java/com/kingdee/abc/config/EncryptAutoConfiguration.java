@@ -15,7 +15,7 @@ import com.kingdee.abc.property.EncryptProperties;
  * 加解密自动配置
  * 
  * @author malcolmszx
- * 
+ * @date 2018/10/05
  * @about http://cxytiandi.com/about
  *
  */

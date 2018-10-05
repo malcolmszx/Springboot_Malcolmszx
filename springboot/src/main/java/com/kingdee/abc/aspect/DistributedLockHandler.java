@@ -32,10 +32,8 @@ public class DistributedLockHandler {
     @Around("@annotation(distributedLock)")
     public void around(ProceedingJoinPoint joinPoint, DistributedLock distributedLock) {
         LOGGER.info("[开始]执行RedisLock环绕通知,获取Redis分布式锁开始");
-        /**获取锁名称*/
-        String lockName = distributedLock.value();
-        /**获取超时时间，默认十秒*/
-        int expireSeconds = distributedLock.expireSeconds();
+        String lockName = distributedLock.value();              /**获取锁名称*/
+        int expireSeconds = distributedLock.expireSeconds();    /**获取超时时间，默认十秒*/
         if (redissonLock.lock(lockName, expireSeconds)) {
             try {
                 LOGGER.info("获取Redis分布式锁[成功]，加锁完成，开始执行业务逻辑...");

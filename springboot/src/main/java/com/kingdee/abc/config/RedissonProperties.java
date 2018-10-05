@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author malcolmszx
- * @date 2018/7/10
+ * @date 2018/10/05
  * @desc Redisson配置映射类
  */
 @ConfigurationProperties(prefix = "redisson.lock.server")
