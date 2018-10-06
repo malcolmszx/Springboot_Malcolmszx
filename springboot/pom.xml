@@ -25,23 +25,20 @@
 		<mybatis.version>1.3.1</mybatis.version>
 		<aspectjweaver>1.8.10</aspectjweaver>
 		<aspecjrt>1.8.10</aspecjrt>
-		<apache-common-lang3.version>3.4</apache-common-lang3.version>
 		<google-guava>20.0</google-guava>
 		<apache-common-lang3>3.4</apache-common-lang3>
 		<java.version>1.8</java.version>
 		<commons-io.version>2.6</commons-io.version>
 		<fastjson.version>1.2.39</fastjson.version>
 		<redisson.version>3.5.4</redisson.version>
-		<autoload-cache.version>6.9.5</autoload-cache.version>
 		
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
 
 	<dependency>
       <groupId>org.springframework.boot</groupId>
@@ -49,52 +46,46 @@
       <optional>true</optional>
     </dependency>
     
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-configuration-processor</artifactId>
+		<optional>true</optional>
+	</dependency>
 		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-devtools</artifactId>
+		<scope>runtime</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	</dependency>
 		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		
-		
-		<!--mybatis-->
-		<dependency>
-		    <groupId>org.mybatis.spring.boot</groupId>
-		    <artifactId>mybatis-spring-boot-starter</artifactId>
-		    <version>${mybatis.version}</version>
-		</dependency>
-		<!--mapper-->
-		<dependency>
-		    <groupId>tk.mybatis</groupId>
-		    <artifactId>mapper-spring-boot-starter</artifactId>
-		    <version>1.2.4</version>
-		</dependency>
-		<!--pagehelper-->
-		<dependency>
-		    <groupId>com.github.pagehelper</groupId>
-		    <artifactId>pagehelper-spring-boot-starter</artifactId>
-		    <version>1.2.3</version>
-		</dependency>
+	<!--mybatis-->
+	<dependency>
+	    <groupId>org.mybatis.spring.boot</groupId>
+	    <artifactId>mybatis-spring-boot-starter</artifactId>
+	    <version>${mybatis.version}</version>
+	</dependency>
+	<!--mapper-->
+	<dependency>
+	    <groupId>tk.mybatis</groupId>
+	    <artifactId>mapper-spring-boot-starter</artifactId>
+	    <version>1.2.4</version>
+	</dependency>
+	<!--pagehelper-->
+	<dependency>
+	    <groupId>com.github.pagehelper</groupId>
+	    <artifactId>pagehelper-spring-boot-starter</artifactId>
+	    <version>1.2.3</version>
+	</dependency>
 		
 		<dependency>
 		    <groupId>commons-io</groupId>
@@ -127,7 +118,6 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectjweaver}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
 		
 		<dependency>
 			<groupId>org.redisson</groupId>
@@ -137,15 +127,9 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>${apache-common-lang3.version}</version>
+			<version>${apache-common-lang3}</version>
 		</dependency>
 		
-		<dependency>
-		  <groupId>com.github.qiujiayu</groupId>
-		  <artifactId>autoload-cache</artifactId>
-		  <version>${autoload-cache.version}</version>
-		</dependency>
-
 	 	<dependency>
 	      <groupId>org.springframework.boot</groupId>
 	      <artifactId>spring-boot-starter-data-redis</artifactId>
