@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <properties url="file:///C:\Users\DELL\Desktop\GitHub\Springboot_Malcolmszx\springboot\src\main\resources\mybatis-generator\generator.properties" />
+    <classPathEntry location="mysql-connector-java-5.1.32.jar" />
+    <context id="BuildingTables" targetRuntime="Mybatis3">
+        <property name="javaFileEncoding" value="UTF-8" />
+        <property name="suppressTypeWarnings" value="true" />
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${generator.jdbc.driver}"
+                        connectionURL="${generator.jdbc.url}" 
+                        userId="${generator.jdbc.username}"
+                        password="${generator.jdbc.password}" />
+
+        <javaModelGenerator targetPackage="${generator.domainPackage}"
+                            targetProject="../../java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="${generator.mapperPackage}"
+                         targetProject="../../resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="${generator.daoPackage}"
+                             targetProject="../../java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="user" domainObjectName="User"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+               <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" type="post" />
+        </table>
+    </context>
+</generatorConfiguration>

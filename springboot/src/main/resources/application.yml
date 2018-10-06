@@ -1,14 +1,36 @@
+# rest加密解密配置
 spring: 
   encrypt: 
     key: abcdef0123456789
     debug: false
+ 
+# 环境配置文件指定    
   profiles: 
     active: prod
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    
+mysql:   
+  datasource: 
+    driver: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/dbgirl?characterEncoding=utf8&useSSL=true
     username: root
     password: dengqw
+    path: \mybatis\**\*Mapper.xml 
+    entity: com.kingdee.abc.entity
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 3
+    removeAbandoned: true
+    removeAbandonedTimeout: 180
+    connectionProperties: clientEncoding=UTF-8
+    validationQuery: SELECT 'x' from DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    basePackage: com.kingdee.abc.dao   
+# redis分布式锁的配置
 redisson: 
   lock: 
     server: 
@@ -17,7 +39,8 @@ redisson:
 redis: 
   lock: 
     cron: 0/5 * * * * ?
-    
+
+# 日志配置   
 logging: 
   pattern: 
     console: "%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n"
