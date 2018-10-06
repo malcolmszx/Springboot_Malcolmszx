@@ -49,4 +49,13 @@ logging:
   level: 
     com.kingdee.abc: INFO
 
-
+# swagger2配置
+swagger: 
+  enabled: true
+  title: malcolmxz@swagger
+  contact: 
+    name: dengqw
+    email: malcolmxz@163.com
+  base-package: com.kingdee.abc
+  base-path:  /**
+  xclude-path: /error, /ops/**

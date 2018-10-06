@@ -8,6 +8,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.kingdee.abc.annotation.EnableEncrypt;
 import com.kingdee.abc.annotation.EnableRedissonLock;
+import com.spring4all.swagger.EnableSwagger2Doc;
+
 import org.apache.catalina.connector.Connector;
 import org.apache.coyote.http11.Http11NioProtocol;
 
@@ -15,6 +17,7 @@ import org.apache.coyote.http11.Http11NioProtocol;
 @EnableScheduling
 @SpringBootApplication
 @EnableEncrypt
+@EnableSwagger2Doc
 public class SpringbootApplication {
 
 	public static void main(String[] args) {
