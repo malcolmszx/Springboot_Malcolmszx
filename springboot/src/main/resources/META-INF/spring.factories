@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.kingdee.abc.config.cache.AutoloadCacheManageConfiguration,\
-com.kingdee.abc.config.cache.DistributedLockConfiguration,\
-com.kingdee.abc.config.cache.AutoloadCacheAutoConfigure
