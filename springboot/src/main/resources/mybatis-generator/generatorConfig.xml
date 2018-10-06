@@ -2,34 +2,57 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
     <properties url="file:///C:\Users\DELL\Desktop\GitHub\Springboot_Malcolmszx\springboot\src\main\resources\mybatis-generator\generator.properties" />
-    <classPathEntry location="mysql-connector-java-5.1.32.jar" />
+    <!-- <classPathEntry location="mysql-connector-java-5.1.32.jar" /> -->
+     
+    <!--自动生成的两种方式: 1、运行maven插件; 2、运行 mybatis-generator-core-1.3.2.jar
+               例如：java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig.xml
+               查考：http://mbg.cndocs.ml/running/running.html
+     -->
+    
+    <!-- 注意：运行maven插件的方式  targetProject="src/main/resources 运行jar方式：targetProject="../../resources" -->
+    <!-- 注意：运行maven插件的方式  去掉<classPathEntry location="mysql-connector-java-5.1.32.jar"/> 配置
+                           运行jar方式：需要<classPathEntry location="mysql-connector-java-5.1.32.jar"/>配置 -->
+    
     <context id="BuildingTables" targetRuntime="Mybatis3">
         <property name="javaFileEncoding" value="UTF-8" />
+        <!--caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true-->
+        <property name="caseSensitive" value="true"/>
         <property name="suppressTypeWarnings" value="true" />
 
+ 		<!-- 阻止生成自动注释 -->
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true" />
         </commentGenerator>
 
+		<!--数据库链接地址账号密码-->
         <jdbcConnection driverClass="${generator.jdbc.driver}"
                         connectionURL="${generator.jdbc.url}" 
                         userId="${generator.jdbc.username}"
-                        password="${generator.jdbc.password}" />
-
+                        password="${generator.jdbc.password}">
+        </jdbcConnection>
+                
+		<!--指定生成的类型为java类型，避免数据库中number等类型字段 -->        
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+                        
+ 		<!--自动生成的实体的存放包路径  targetProject="../../java -->
         <javaModelGenerator targetPackage="${generator.domainPackage}"
-                            targetProject="../../java">
+                            targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
+		<!--自动生成的*Mapper.xml文件存放路径  -->
         <sqlMapGenerator targetPackage="${generator.mapperPackage}"
-                         targetProject="../../resources">
+                         targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
+		<!--自动生成的*Mapper.java存放路径 -->
         <javaClientGenerator targetPackage="${generator.daoPackage}"
-                             targetProject="../../java" type="XMLMAPPER">
+                             targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
