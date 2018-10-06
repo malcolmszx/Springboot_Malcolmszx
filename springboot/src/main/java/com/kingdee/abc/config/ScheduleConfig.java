@@ -12,7 +12,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
 /**
  * 多线程执行定时任务
- * @author 王久印
+ * @author malcomszx
  * 2018年3月1日
  */
 @Configuration
