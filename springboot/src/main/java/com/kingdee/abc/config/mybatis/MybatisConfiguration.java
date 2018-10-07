@@ -1,6 +1,9 @@
 package com.kingdee.abc.config.mybatis;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.github.pagehelper.PageHelper;
+
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+
+import java.util.Properties;
 
 import javax.sql.DataSource;
 
@@ -67,11 +72,23 @@ public class MybatisConfiguration {
 
         return dataSource;
     }
-
+    
+   
     @Bean(value = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(getDataSource());
+        PageHelper pageHelper = new PageHelper();
+        Properties properties = new Properties();
+        properties.setProperty("reasonable", "false");
+        properties.setProperty("supportMethodsArguments", "false");
+        properties.setProperty("returnPageInfo", "check");
+        properties.setProperty("params", "count=countSql");
+        properties.setProperty("offsetAsPageNum", "false");
+        properties.setProperty("rowBoundsWithCount", "false");
+        pageHelper.setProperties(properties);
+        SqlStatementInterceptor sqlStatementInterceptor = new SqlStatementInterceptor();
+        sessionFactory.setPlugins(new Interceptor[]{pageHelper, sqlStatementInterceptor});
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sessionFactory.setMapperLocations(resolver.getResources("classpath:mybatis/*.xml"));
       /*  sessionFactory.setMapperLocations(new Resource[]{new ClassPathResource("mybatis/UserMapper.xml")});*/
