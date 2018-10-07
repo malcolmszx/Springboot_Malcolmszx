@@ -87,8 +87,8 @@ public class MybatisConfiguration {
         properties.setProperty("offsetAsPageNum", "false");
         properties.setProperty("rowBoundsWithCount", "false");
         pageHelper.setProperties(properties);
-        SqlStatementInterceptor sqlStatementInterceptor = new SqlStatementInterceptor();
-        sessionFactory.setPlugins(new Interceptor[]{pageHelper, sqlStatementInterceptor});
+        //SqlStatementInterceptor sqlStatementInterceptor = new SqlStatementInterceptor();
+        sessionFactory.setPlugins(new Interceptor[]{pageHelper/*, sqlStatementInterceptor*/});
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sessionFactory.setMapperLocations(resolver.getResources("classpath:mybatis/*.xml"));
       /*  sessionFactory.setMapperLocations(new Resource[]{new ClassPathResource("mybatis/UserMapper.xml")});*/
