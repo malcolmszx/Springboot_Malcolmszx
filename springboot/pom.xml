@@ -77,6 +77,18 @@
 		<scope>runtime</scope>
 	</dependency>
 	
+	 <!--Springboot发送邮件依赖-->
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-mail</artifactId>
+    </dependency>
+
+    <!--发送模板邮件使用的方法与发送HTML邮件的方法一致-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+	
 	<dependency>
 		<groupId>com.spring4all</groupId>
 		<artifactId>swagger-spring-boot-starter</artifactId>

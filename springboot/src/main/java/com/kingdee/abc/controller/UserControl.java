@@ -1,4 +1,4 @@
-package com.kingdee.abc.control;
+package com.kingdee.abc.controller;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 
