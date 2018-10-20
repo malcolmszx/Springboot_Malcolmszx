@@ -124,7 +124,7 @@ public class EmailController {
             context.setVariable("author", "Javen");
             context.setVariable("url", "https://github.com/Javen205/IJPay");
             String emailContent = templateEngine.process("sendMailModel", context);
-            mailService.sendHtmlMail("3040003213@qq.com", "这是模板邮件", emailContent);
+            mailService.sendHtmlMail("1187970372@qq.com", "这是模板邮件", emailContent);
         }catch (Exception ex){
             ex.printStackTrace();
             return ServerResponse.createByError(-1,"邮件发送失败!!");
