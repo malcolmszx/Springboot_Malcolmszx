@@ -54,7 +54,7 @@ public class IMailServiceImpl implements IMailService {
     @Override
     public void sendSimpleMail(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(from);
+        message.setFrom(emailProperties.getFrom());
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);

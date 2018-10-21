@@ -107,7 +107,7 @@ public class EmailController {
             String rscId = "IJPay";
             String content = "<html><body>这是有图片的邮件<br/><img src=\'cid:" + rscId + "\' ></body></html>";
             String imgPath = "D:\\BaiduNetdiskDownload\\[极品网红资源合集] (1)\\极品网红资源合集 (1)\\园田海未旗袍\\15 (1).jpg";
-            mailService.sendResourceMail("3040003213@qq.com", "这邮件中含有图片", content, imgPath, rscId);
+            mailService.sendResourceMail("1187970372@qq.com", "这邮件中含有图片", content, imgPath, rscId);
 
         }catch (Exception ex){
             ex.printStackTrace();
