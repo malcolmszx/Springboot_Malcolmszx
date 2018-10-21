@@ -8,6 +8,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import com.kingdee.abc.config.EmailProperties;
 import com.kingdee.abc.service.IMailService;
 
 import javax.mail.MessagingException;
@@ -46,6 +47,9 @@ public class IMailServiceImpl implements IMailService {
 
     @Value("${spring.mail.from}")
     private String from;
+    
+    @Autowired
+    private EmailProperties emailProperties;
 
     @Override
     public void sendSimpleMail(String to, String subject, String content) {
