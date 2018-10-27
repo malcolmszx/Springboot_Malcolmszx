@@ -16,6 +16,7 @@ import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.util.IOUtils;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -39,6 +40,7 @@ public class ExecelReader {
 		InputStream inputStream = resource.getInputStream();
 		File tmpFile = File.createTempFile("web-info", ".xls");
 		FileUtils.copyInputStreamToFile(inputStream, tmpFile);
+		IOUtils.closeQuietly(inputStream);
 		HSSFWorkbook book = new HSSFWorkbook(new FileInputStream(tmpFile));
 	    HSSFSheet sheet = book.getSheetAt(0);
 
