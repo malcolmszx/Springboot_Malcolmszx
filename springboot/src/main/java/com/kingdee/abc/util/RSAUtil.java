@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.math.BigInteger;
 import java.security.Key;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -11,7 +12,11 @@ import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.RSAPrivateKeySpec;
+import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
@@ -151,6 +156,59 @@ public class RSAUtil {
         byte[] source = cipher.doFinal(ciphertext);
         return source;
     }
+    
+    /************************************ 方式三 特征值还原公私钥 ************************************/
+    /** 提取特征值保存，以base64编码密钥*/
+    public static Map<String ,String> generateKeyPair2() throws Exception{
+    	Map<String, String> map = new HashMap<String, String>();
+        SecureRandom sr = new SecureRandom();
+        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
+        kpg.initialize(KEYSIZE, sr);
+        KeyPair kp = kpg.generateKeyPair();
+        Key publicKey = kp.getPublic();
+        Key privateKey = kp.getPrivate();
+       
+        RSAPublicKey rpk = (RSAPublicKey)publicKey;
+        RSAPrivateKey rpr= (RSAPrivateKey)privateKey;
+        //三个特征值都是BigInteger类型。
+        BigInteger N = rpk.getModulus();//N值
+        BigInteger e = rpk.getPublicExponent();//e值
+        BigInteger d  = rpr.getPrivateExponent();//d值
+        Base64 Base64 = new Base64();
+        //将BigInteger转为byte[],然后以base64保存
+        map.put("N", new String(Base64.encode(N.toByteArray())));
+        map.put("e", new String(Base64.encode(e.toByteArray())));
+        map.put("d", new String(Base64.encode(d.toByteArray())));
+        return map;
+    }
+    
+    /** 从base64编码的特征值(N,e)恢复公钥*/
+    public static PublicKey getPulbickey(BigInteger N, BigInteger e) throws Exception{
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+        RSAPublicKeySpec ps = new RSAPublicKeySpec(N, e);
+        PublicKey pkey = kf.generatePublic(ps);
+        return pkey;
+    }
+    
+    
+    /** 从base64编码的特征值(N,e)恢复公钥*/
+    public static PublicKey getPulbickey(String N_Str,String e_Str) throws Exception{
+        BigInteger N = new BigInteger(1, new Base64().decode(N_Str.getBytes()));
+        BigInteger e = new BigInteger(1, new Base64().decode(e_Str.getBytes()));
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+        RSAPublicKeySpec ps = new RSAPublicKeySpec(N, e);
+        PublicKey pkey = kf.generatePublic(ps);
+        return pkey;
+    }
+	/**从base64编码的特征值（N,d）恢复私钥*/
+	public static PrivateKey getPrivatekey(String N_Str,String d_Str) throws Exception{
+	    BigInteger N = new BigInteger(1, new Base64().decode(N_Str.getBytes()));
+	    BigInteger d = new BigInteger(1, new Base64().decode(d_Str.getBytes()));
+	    KeyFactory kf = KeyFactory.getInstance("RSA");
+	    RSAPrivateKeySpec ps = new RSAPrivateKeySpec(N, d);
+	    PrivateKey pkey = kf.generatePrivate(ps);
+	    return pkey;
+	}
 
     
   /*  
@@ -164,11 +222,19 @@ public class RSAUtil {
         System.out.println(target);
     }*/
     
-    public static void main(String[] args) throws Exception {
+   /* public static void main(String[] args) throws Exception {
     	Map<String ,String> keyPairMap = generateKeyPair();
     	log.info("【keyPairMap】============== keyPairMap: {}", keyPairMap);
     	PublicKey publicKey = getPulbickey(keyPairMap.get("publicKey"));
     	PrivateKey privateKey = getPrivatekey(keyPairMap.get("privateKey"));
+    }
+    */
+    
+    public static void main(String[] args) throws Exception {
+    	Map<String ,String> keyPairMap = generateKeyPair2();
+    	// String pbStr =  new String(new Base64().encode(getPulbickey(keyPairMap.get("N"),keyPairMap.get("e")).getEncoded()));
+    	// log.info("【keyPairMap】============== keyPairMap: {}", keyPairMap.get("publicKey").equals(pbStr));
+    	
     }
 
 	
